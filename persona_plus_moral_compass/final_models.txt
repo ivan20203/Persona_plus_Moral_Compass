@@ -1,0 +1,13 @@
+
+gpt-oss:20b,
+gpt-oss:120b,
+
+llama4:16x17b,
+llama3.3:70b,
+
+gemma3:27b,
+gemma3:1b
+
+mixtral:8x22b,
+mistral-small3.2:24b,
+
