@@ -406,8 +406,7 @@ class ClosedModel(BaseModel):
                     base_url=self.base_url,  # Use default or custom base URL
                     messages=current_messages,
                     temperature=0.0,  # Keep deterministic for reproducibility
-                    max_tokens=512,
-                    #for gpt models used 4096
+                    max_tokens=4096,
                 )
 
                 # Track token usage

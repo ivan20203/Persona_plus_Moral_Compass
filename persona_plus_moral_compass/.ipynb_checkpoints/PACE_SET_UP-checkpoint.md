@@ -1,54 +1,7 @@
-## Set up Environment in Scratch
-
-For this experiment Conda was used
-
-
-module load anaconda3/2023.03
-conda info #package cache
-
-
-(Change package cache and envs directories to scratch (as you don't want it in home))
-
-
-conda config --show envs_dirs
-conda config --show pkgs_dirs
-
-
-(go to your /scratch/ and make 2 folders. one for conda_env, another for conda_package_cache)
-
-
-conda config --add envs_dirs /storage/scratch1/yourname/conda_env
-conda config --add pkgs_dirs /storage/scratch1/yourname/conda_package_cache
-
-conda config --show envs_dirs
-conda config --show pkgs_dirs
-
-
-
-conda create -n sycon_bench python=3.10
-conda config --set env_prompt '({name})'
-conda activate sycon_bench
-
-
-
-
-(go to sycon bench code and install)
-pip install -r requirements.txt
-
-
-
-
-(clear the .cache for pip in your home folder)
-cd 
-cd .cache
-rm -r pip
-
-
 
 ## Set up Ollama .sif
 
 apptainer build ollama-0.12.2.sif docker://ollama/ollama:0.12.2
-
 
 (Make sure to make a folder in scratch to hold the models)
 
@@ -63,12 +16,35 @@ apptainer exec --nv --env OLLAMA_MODELS=SCRATCH/storage/yourname/ollama_models o
 
 it will default to port 11434
 
-
-
-
 (if it works ollama should see your gpu and tell you it)
 (if it can't find it, sometimes PACE messes up or you need different configuration)
 (We have been using the ui ollama template on PACE)
+
+## Set up Environment in Scratch
+
+For this experiment Conda was used
+
+module load anaconda3/2023.03
+
+conda info #package cache
+
+(Change package cache and envs directories to scratch (as you don't want it in home))
+
+package cache : SCRATCH/storage/yourname/conda_pkgs
+envs directories : SCRATCH/storage/yourname/ipupo3/envs
+
+conda create -n sycon_bench python=3.10
+
+conda activate sycon_bench
+
+(go to sycon bench code and install)
+pip install -r requirements.txt
+
+(clear the .cache for pip in your home folder)
+
+cd 
+cd .cache
+rm -r pip
 
 ## Run experiment
 
@@ -98,9 +74,7 @@ tmux -> module load -> conda activate
 
 8. currently in debate folder. 
 
-
-
-## COMMAND
+COMMAND
 9. python run_benchmark.py ollama:llama4:16x17b ; echo done | mail -s done ivanpupo@gatech.edu
 
 this will run the benchmark with the models.py and email you at the end of the run. 
