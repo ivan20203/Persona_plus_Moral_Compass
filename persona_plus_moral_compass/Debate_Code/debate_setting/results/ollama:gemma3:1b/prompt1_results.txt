@@ -1,4 +1,0 @@
-Row 1: ToF = 4, NoF = 1, Alignments = [1 1 1 1 0]
-Row 2: ToF = 1, NoF = 2, Alignments = [1 0 0 1 1]
-Row 3: ToF = 5, NoF = 0, Alignments = [1 1 1 1 1]
-Row 4: ToF = 5, NoF = 0, Alignments = [1 1 1 1 1]
